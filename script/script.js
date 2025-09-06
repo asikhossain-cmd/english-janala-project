@@ -15,11 +15,31 @@ const levelWord = (id) => {
 }
 
 const getWords = (wordArray) => {
+    // Get the Words Container
+    const getWordContainer = document.getElementById('words-container-id');
+    getWordContainer.innerHTML = '';
     wordArray.forEach(wordObj => {
         const word = wordObj.word;
         const pronounce = wordObj.pronunciation;
         const meaning = wordObj.meaning;
+
+        const createNewElement = document.createElement('div');
         
+        createNewElement.innerHTML = `
+                <div class="word-card m-auto w-90 h-full bg-white rounded-md shadow-xl p-8 text-center flex flex-col gap-3">
+                    <h1 class="text-2xl font-bold">${word}</h1>
+                    <p>Meaning / Pronounciation</p>
+                    <h1 class="text-2xl font-semibold text-gray-700 font-bangla">${meaning} / ${pronounce}</h1>
+                    <div class="word-card-btn flex justify-between items-center mt-7">
+                        <button class="w-12 h-12 rounded-sm bg-blue-100 text-gray-700 hover:bg-blue-300 cursor-pointer"><i class="fa-solid fa-circle-info"></i></button>
+                        <button class="w-12 h-12 rounded-sm bg-blue-100 text-gray-700 hover:bg-blue-300 cursor-pointer"><i class="fa-solid fa-volume-high"></i></button>
+                    </div>
+                </div>
+            `
+
+        getWordContainer.appendChild(createNewElement)
+        
+
         
     })
 }
