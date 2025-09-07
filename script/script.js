@@ -61,7 +61,7 @@ const levelWord = (id) => {
                 </div>
         `
 
-        word_details.showModal()
+        document.getElementById('word_details').showModal()
     }
 
     // Blank lesson error message
